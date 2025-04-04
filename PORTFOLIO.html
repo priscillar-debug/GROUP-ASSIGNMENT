@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Project</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('Background.jpeg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            width: 80%;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+        .popup input, .popup textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .popup button {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background: #0056b3;
+        }
+        .close-btn {
+            background: red;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+    <script>
+        function toggleForm() {
+            var form = document.getElementById('bookingForm');
+            form.style.display = (form.style.display === 'block') ? 'none' : 'block';
+        }
+        function toggleAbout() {
+            var aboutSection = document.getElementById('aboutMe');
+            aboutSection.classList.toggle('hidden');
+        }
+        function toggleContact() {
+            var contactSection = document.getElementById('contactPopup');
+            contactSection.style.display = (contactSection.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Connect With Web Developer Priscillar Mathu</h1>
+        <p>Explore my projects, book a service, or just say hello! I specialize in front-end and back-end development, ensuring sleek, user-friendly, and functional designs.</p>
+        <p>Want to collaborate? Click the button below to get started!</p>
+        <button class="btn" onclick="toggleForm()">Book a Service</button>
+        <button class="btn" onclick="toggleAbout()">About Me</button>
+        <button class="btn" onclick="toggleContact()">Contact Me</button>
+    </div>
+    
+    <!-- Booking Form Popup -->
+    <div id="bookingForm" class="popup">
+        <button class="close-btn" onclick="toggleForm()">Close</button>
+        <h2>Book a Service</h2>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="service" placeholder="Describe your preferred service" required></textarea>
+        <button onclick="sendEmail()">Submit</button>
+    </div>
+    
+    <!-- About Me Section -->
+    <div id="aboutMe" class="container hidden">
+        <h2>About Me</h2>
+        <p>Hello! I'm a passionate developer proficient in HTML, CSS, and Python. My journey in tech started at Rift Valley National Polytechnic, and I continue to expand my skills through the Power Learn Platform (PLP). I thrive on creating innovative solutions that enhance user experiences.</p>
+        <button class="btn" onclick="toggleAbout()">Close</button>
+    </div>
+
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+        <button class="close-btn" onclick="toggleContact()">Close</button>
+        <h2>Contact Me</h2>
+        <p>
+            📞 Phone: <a href="tel:+254797918019" style="color: white; text-decoration: none;">+254 797 918 019</a><br>
+            📧 Email: <a href="mailto:priscilamathu@gmail.com" style="color: white; text-decoration: none;">priscilamathu@gmail.com</a>
+        </p>
+        <div class="social-icons">
+            <a href="https://web.facebook.com/profile.php?id=100079825582432" target="_blank">Facebook</a> |
+        </div>
+    </div>
+</body>
+</html>
